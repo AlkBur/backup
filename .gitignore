@@ -1,6 +1,7 @@
 ### Go template
 # Binaries for programs and plugins
 *.exe
+*.log
 *.exe~
 *.dll
 *.so
