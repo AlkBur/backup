@@ -1,6 +1,7 @@
 package server
 
 import (
+	"backup/internal/config"
 	"html/template"
 	"log"
 	"net/http"
@@ -26,6 +27,7 @@ type (
 		groups        []*RouterGroup     // store all groups
 		htmlTemplates *template.Template // for html render
 		funcMap       template.FuncMap   // for html render
+		cfgInfo       config.Notification
 	}
 )
 
@@ -42,6 +44,10 @@ func Default() *Server {
 	server := New()
 	server.Use(Logger(), Recovery())
 	return server
+}
+
+func (server *Server) Notification(info config.Notification) {
+	server.cfgInfo = info
 }
 
 // Group is defined to create a new RouterGroup

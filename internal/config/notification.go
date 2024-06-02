@@ -7,19 +7,18 @@ import (
 	"path/filepath"
 )
 
-type config struct {
-	Port int
+type Notification struct {
+	Token string
+	URL   string
 }
 
-func Init() (cfg config) {
-	cfg.Port = 8000
-
+func NewNotification() (cfg Notification) {
 	mydir, err := os.Getwd()
 	if err != nil {
 		log.Fatal("Error get current working directory: ", err)
 	}
 
-	f, err := os.ReadFile(filepath.Join(mydir, "configs", "server.json"))
+	f, err := os.ReadFile(filepath.Join(mydir, "configs", "notification.json"))
 	if err != nil {
 		log.Fatal("Error when opening config file: ", err)
 	}
