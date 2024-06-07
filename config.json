@@ -1,0 +1,8 @@
+{
+    "Server": {
+        "Port": ":8000"
+    },
+    "Log": {
+        "Level": "Debug"
+    }
+}
